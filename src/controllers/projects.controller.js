@@ -9,8 +9,12 @@ import {
 export const createProject = async (req, res) => {
   try {
     // TODO: 1. Crear el project con los datos del body que ya pasaron la validación.
+    const { name, description, budget, startDate } = req.body;
     const project = await ProjectModel.create({
-      ...req.body,
+      name,
+      description,
+      budget,
+      startDate,
       leader_id: req.user.id,
     });
     // TODO: 2. Asociar al project las technologies recibidas.
