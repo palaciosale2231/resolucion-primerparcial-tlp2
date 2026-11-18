@@ -11,6 +11,8 @@ import {
 export const authRoutes = Router();
 
 // TODO: 1. Decidir y aplicar los middlewares que correspondan a cada ruta.
+authRoutes.post("/auth/register", validator, registerValidation, register);
+authRoutes.post("/auth/login", validator, loginValidation, login);
 
 // ? Registro de usuario: acceso público.
 authRoutes.post("/auth/register", register);
@@ -19,4 +21,4 @@ authRoutes.post("/auth/register", register);
 authRoutes.post("/auth/login", login);
 
 // ? Cierre de sesión: requiere sesión iniciada.
-authRoutes.post("/auth/logout", logout);
+authRoutes.post("/auth/logout", authMiddleware, logout);

@@ -18,7 +18,7 @@ technologyRoutes.post(
   adminMiddleware,
   createTechnologyValidation,
   validator,
-  createTechnology
+  createTechnology,
 );
 
 technologyRoutes.get("/technologies", authMiddleware, getAllTechnologies);
@@ -27,5 +27,5 @@ technologyRoutes.delete(
   "/technologies/:id",
   authMiddleware,
   adminMiddleware,
-  deleteTechnology
+  deleteTechnology,
 );
