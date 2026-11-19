@@ -5,6 +5,7 @@ import { UserModel, ProfileModel } from "../../models/index.js";
 export const registerValidation = [
   // TODO: 1. Validar username: obligatorio, entre 3 y 20 caracteres y único (UserModel).
   body("username")
+    .notEmpty().withMessage("El nombre de usuario es obligatorio.")
     .isLength({ min: 3, max: 20 })
     .withMessage("El nombre de usuario debe tener entre 3 y 20 caracteres.")
     .custom(async (value) => {
@@ -15,6 +16,7 @@ export const registerValidation = [
     }),
   // TODO: 2. Validar email: obligatorio, con formato válido y único.
   body("email")
+    .notEmpty().withMessage("El correo electrónico es obligatorio.")
     .isEmail()
     .withMessage("El correo electrónico no tiene un formato válido.")
     .custom(async (value) => {
@@ -25,6 +27,7 @@ export const registerValidation = [
     }),
   // TODO: 3. Validar password: obligatoria, con mínimo de 8 caracteres.
   body("password")
+    .notEmpty().withMessage("La contraseña es obligatoria.")
     .isLength({ min: 8 })
     .withMessage("La contraseña debe tener al menos 8 caracteres."),
   // TODO: 4. Validar role: opcional y limitado a los roles permitidos.
