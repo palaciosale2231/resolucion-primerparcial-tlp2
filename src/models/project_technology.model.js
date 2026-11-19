@@ -15,11 +15,19 @@ export const ProjectTechnologyModel = sequelize.define(
     project_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+    model: "Projects", // o ProjectModel, según el nombre de tabla/modelo
+    key: "id",
+  },
       // TODO: 3. technology_id: entero, obligatorio, clave foránea hacia Technology.
     },
     technology_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+    model: "Technologies", // o TechnologyModel, según el nombre de tabla/modelo
+    key: "id",
+  },
     },
   },
   {

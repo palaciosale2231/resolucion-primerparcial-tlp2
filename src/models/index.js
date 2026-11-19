@@ -16,10 +16,14 @@ ProjectModel.belongsTo(UserModel, { foreignKey: "leader_id", as: "leader" });
 // TODO: 3. Definir la relación N:M entre Project y Technology con los alias technologies y projects, a través de ProjectTechnologyModel y al mismo tiempo configurar la eliminación en cascada para ambos.
 ProjectModel.belongsToMany(TechnologyModel, {
   through: ProjectTechnologyModel,
+  foreignKey: "project_id",
+  otherKey: "technology_id",
   as: "technologies",
 });
 TechnologyModel.belongsToMany(ProjectModel, {
   through: ProjectTechnologyModel,
+  foreignKey: "technology_id",
+  otherKey: "project_id",
   as: "projects",
 });
 

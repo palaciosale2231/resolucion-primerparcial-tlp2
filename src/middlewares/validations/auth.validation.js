@@ -30,7 +30,7 @@ export const registerValidation = [
   // TODO: 4. Validar role: opcional y limitado a los roles permitidos.
   body("role")
     .optional()
-    .isIn(["user", "admin"])
+    .isIn(["developer", "administrator"])
     .withMessage("El rol no es válido."),
   // TODO: 5. Validar profile.employee_number: obligatorio y único (ProfileModel).
   body("profile.employee_number")
